@@ -18,10 +18,12 @@ public class Menu {
     public ArrayList<String> choices;
     public Input input = new Input();
     public Output output = new Output();
+    public RdvDAO rdv_dao;
 
-    public Menu(String header, ArrayList<String> choices) {
+    public Menu(String header, ArrayList<String> choices, RdvDAO rdv_dao) {
         this.header = header;
         this.choices = choices;
+        this.rdv_dao = rdv_dao;
     }
     
     public int ManageUserChoice() throws SQLException {
@@ -40,26 +42,22 @@ public class Menu {
         switch (user_choice) {
             case 1:
                 this.output.Output("Créneaux disponibles");
-                GetAllRdv rdv = new GetAllRdv();
-                rdv.GetAllRdvPgsql();
+                this.rdv_dao.GetAllRdv();
                 break;
                 
             case 2:
                 this.output.Output("Liste des rendez-vous par clients");
-                GetClientRdv c_rdv = new GetClientRdv();
-                c_rdv.GetClientRdvPgsql();
+                this.rdv_dao.GetClientRdv();
                 break;
                 
             case 3:
                 this.output.Output("Prendre un rendez-vous");
-                TakeAppointement t_rdv = new TakeAppointement();
-                t_rdv.TakeAppointementPgsql();
+                this.rdv_dao.TakeAppointement();
                 break;
                 
             case 4:
                 this.output.Output("Supprimer un rendez-vous");
-                DeleteAppointement d_rdv = new DeleteAppointement();
-                d_rdv.DeleteAppointementPgsql();
+                this.rdv_dao.DeleteAppointement();
                 break;
                 
             case 9:

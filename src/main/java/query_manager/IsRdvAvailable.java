@@ -5,7 +5,7 @@
  */
 package query_manager;
 
-import dbmanager_pgsql.QueryManager;
+import dbmanager.QueryManagerPgsql;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -14,7 +14,7 @@ import java.sql.SQLException;
  * @author adech
  */
 public class IsRdvAvailable {
-    public QueryManager qm = new QueryManager();
+    public QueryManagerPgsql qm = new QueryManagerPgsql();
     
     public boolean IsRdvAvailablePgsql(String nom_veterinaire, String horaire) throws SQLException {
         String query = "WITH creneauxDisponibles AS " +

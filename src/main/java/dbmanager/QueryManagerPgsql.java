@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dbmanager_pgsql;
+package dbmanager;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,23 +13,25 @@ import java.sql.SQLException;
  *
  * @author adech
  */
-public class QueryManager {
+public class QueryManagerPgsql implements QueryManagerDAO {
     
+    @Override
     public ResultSet ExecuteQuery(String query) throws SQLException {
-        ConnectionManager c = new ConnectionManager();
+        ConnectionManager c = ConnectionManager.GetInstance();
         
         c.Connect();
         
         PreparedStatement statement = c.connection.prepareStatement(query);
         ResultSet result = statement.executeQuery();
-        
+      
         c.Disconnect();
         
         return result;
     }
     
-    public Integer ExecuteUpdatePgsql(String query) throws SQLException {
-        ConnectionManager c = new ConnectionManager();
+    @Override
+    public Integer ExecuteUpdate(String query) throws SQLException {
+        ConnectionManager c = ConnectionManager.GetInstance();
         
         c.Connect();
         

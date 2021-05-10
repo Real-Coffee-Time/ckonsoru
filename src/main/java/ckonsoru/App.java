@@ -6,11 +6,11 @@
 package ckonsoru;
 
 import ihm.*;
-import dbmanager_pgsql.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import java.util.Properties;
+import query_manager.*;
 
 /**
  * Launch the App
@@ -26,16 +26,8 @@ public class App {
         ConfigLoader cf = new ConfigLoader();
         Properties properties = cf.getProperties();
         System.out.println("Mode de persistence : "
-                +properties.getProperty("persistence"));
-        
-        
-        // Connexion sql
-        ConnectionManager main_db_manager = new ConnectionManager();
-        main_db_manager.Connect();
-        main_db_manager.Disconnect();
-        
-        
-        
+                +properties.getProperty("persistence"));      
+              
         
         // Managers ihm pour l'utilisateur
         // Input main_input = new Input();
@@ -51,7 +43,14 @@ public class App {
         choices.add("4 - Supprimer un rdv");
         choices.add("9 - Quitter");
         
-        Menu main_menu = new Menu(menu_header, choices);
+        RdvDAO rdv_dao = null;
+        
+        if (properties.getProperty("persistence").equals("xml")) {
+            rdv_dao = new RdvXml();
+        } else {
+            rdv_dao = new RdvPgsql();
+        }
+        Menu main_menu = new Menu(menu_header, choices, rdv_dao);
         
         Integer user_action;
         do {
