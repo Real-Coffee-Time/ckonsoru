@@ -24,7 +24,7 @@ Le cahier des charges concerne un mini gestionnaire de rendez-vous de cabinet v�
 
 ### Adresse du Git 
 
-https://github.com/Real-Coffee-Time/to_ckonsoru
+<https://github.com/Real-Coffee-Time/ckonsoru>
 
 ## Le Projet
 ### Lancement
@@ -35,20 +35,20 @@ Run le code.
 
 Au lancement de l'application, un menu apparait ; chaque option nécessite une entrée de paramètres.
 - Option 1  
-  paramètres : date  
-  retour : ensemble des crénaux disponibles pour la date choisie  
+  - paramètres : date  
+  - retour : ensemble des crénaux disponibles pour la date choisie  
 - Option 2  
-  paramètres : nom du client  
-  retour : liste des rendez-vous du client donné  
+  - paramètres : nom du client  
+  - retour : liste des rendez-vous du client donné  
 - Option 3  
-  paramètres : nom du vétérinaire, nom du client, date et heure du rendez-vous  
-  retour : le rendez-vous est enregistré.   
+  - paramètres : nom du vétérinaire, nom du client, date et heure du rendez-vous  
+  - retour : le rendez-vous est enregistré.   
            l'un des paramètres entréne fonctionne pas : veuillez réessayer avec de nouvelles valeurs.  
 - Option 4  
-  paramètres : nom du client, date et heure du rendez-vous  
-  retour : le rendez-vous a bien été supprimer  
+  - paramètres : nom du client, date et heure du rendez-vous  
+  - retour : le rendez-vous a bien été supprimer  
 - Option 9  
-  retour : fermeture de l'application  
+  - retour : fermeture de l'application  
 
 ### Classes
 
@@ -67,18 +67,18 @@ Contient l'ensemble des fonctionnalités et des requetes qui concernent la base 
 ### Ajouter une fonctionnalité
 
 Si la fonctionnalité manipule des données :
+
 - rajouter une classe dans query_manager pour pgsql, et pour xml selon le modèle suivant :
   - donner une Classe QueryManager
   - Renseigner la requête
   - Appelez la méthode de Query Manager correspondant au mode de persitance ainsi qu'à l'action effectuée :
     - Simple requête => ExecuteQuery
     - Modification de la base de données => ExecuteUpdate
-
-
 - Dans la méthode ActionManager de la classe Menu appeler cette classe
 - Ajouter une entrée au menu dans la class Main de App pour l'affichage pour l'utilisateur
 
 ## Contenu du projet
-### Répertoire 'src/main' 
+
+### Répertoire 'src/main'
 
 Contient le code du projet
