@@ -12,6 +12,7 @@ ihm\Output.class
 ihm\Input.class
 dbmanager\QueryManagerDAO.class
 items_manager\Disponibilite.class
+dbmanager\XmlManager.class
 dbmanager\ConnectionManager.class
 ckonsoru\App.class
 query_manager\IsRdvAvailable.class

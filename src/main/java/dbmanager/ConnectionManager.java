@@ -5,7 +5,9 @@
  */
 package dbmanager;
 
+import ckonsoru.ConfigLoader;
 import java.sql.*;
+import java.util.Properties;
 
 /**
  *
@@ -17,9 +19,11 @@ public class ConnectionManager {
     public String jdbcUrl, username, password;
 
     private ConnectionManager() {
-        this.jdbcUrl = "jdbc:postgresql://localhost:5432/ckonsoru";
-        this.username = "postgres";
-        this.password = "Clar1nette";
+        ConfigLoader cf = new ConfigLoader();
+        Properties properties = cf.getProperties();
+        this.jdbcUrl = properties.getProperty("bdd.url");           // "jdbc:postgresql://localhost:5432/ckonsoru";
+        this.username = properties.getProperty("bdd.login");        // "Postgres"
+        this.password = properties.getProperty("bdd.mdp");          // Not gonna throw my password for obvious reasons
     }
 
     public Connection Connect() {
