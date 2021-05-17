@@ -144,5 +144,23 @@ public class RdvPgsql implements RdvDAO {
         System.out.println("Aucun rendez-vous n'a été trouvé pour ce client à cette date.");
         return false;
     }
+
+    public ArrayList<Rendezvous> GetCanceledRdv() throws SQLException {
+        ArrayList<Rendezvous> liste_rdv = new ArrayList();
+
+        String query = "SELECT ann_client, ann_creneau, vet_nom, ann_delai" +
+                            "   FROM annulation" +
+                            "	LEFT JOIN veterinaire" +
+		                    "   ON veterinaire.vet_id = annulation.vet_id;";
+
+        ResultSet result = this.qm.ExecuteQuery(query);
+
+        while (result.next()) {
+            System.out.println(result.getString(1) + " le " + result.getString(2) + " avec " + result.getString(3) + " (" + result.getString(4) + "avant)" );
+        }
+
+        return null;
+
+    }
     
 }

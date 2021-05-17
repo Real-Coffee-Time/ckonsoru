@@ -59,6 +59,11 @@ public class Menu {
                 this.output.Output("Supprimer un rendez-vous");
                 this.rdv_dao.DeleteAppointement();
                 break;
+
+            case 8 : 
+                this.output.Output("Liste des rendez-vous annulés");
+                this.rdv_dao.GetCanceledRdv();
+                break;
                 
             case 9:
                 this.output.Output("Fin du programme");
