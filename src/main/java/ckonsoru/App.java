@@ -41,6 +41,7 @@ public class App {
         choices.add("2 - Lister les rdv passés, présents et à venir d'un client");
         choices.add("3 - Prendre un rdv");
         choices.add("4 - Supprimer un rdv");
+        choices.add("5 - Liste d'attente");
         choices.add("8 - Liste des annulations");
         choices.add("9 - Quitter");
         

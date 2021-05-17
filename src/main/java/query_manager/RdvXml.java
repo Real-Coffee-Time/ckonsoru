@@ -48,5 +48,10 @@ public class RdvXml implements RdvDAO {
     public ArrayList<Rendezvous> GetCanceledRdv() throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public void PrintWaitList() throws SQLException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

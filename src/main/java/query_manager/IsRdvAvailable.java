@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -16,7 +16,8 @@ import java.sql.SQLException;
 public class IsRdvAvailable {
     public QueryManagerPgsql qm = new QueryManagerPgsql();
     
-    public boolean IsRdvAvailablePgsql(String nom_veterinaire, String horaire) throws SQLException {
+    public boolean IsRdvAvailablePgsql(String nom_veterinaire, String date, String heure) throws SQLException {
+        String horaire = date + " " + heure;
         String query = "WITH creneauxDisponibles AS " +
                             "	(SELECT vet_nom, generate_series('18-03-2021'::date+dis_debut," +
                             "						   '18-03-2021'::date+dis_fin-'00:20:00'::time," +
