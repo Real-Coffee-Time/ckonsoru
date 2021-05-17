@@ -18,4 +18,5 @@ public interface RdvDAO {
     public ArrayList<Rendezvous> GetClientRdv() throws SQLException;
     public boolean TakeAppointement() throws SQLException;
     public boolean DeleteAppointement() throws SQLException;
+    public ArrayList<Rendezvous> GetCanceledRdv() throws SQLException;
 }
